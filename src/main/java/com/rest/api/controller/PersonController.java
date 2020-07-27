@@ -54,7 +54,9 @@ public class PersonController {
         if(optionalPerson.isPresent()) {
             Person updatePersona = optionalPerson.get();
             updatePersona.setNombre(person.getNombre());
+            updatePersona.setUsername(person.getUsername());
             updatePersona.setApellido(person.getApellido());
+            updatePersona.setEmail(person.getEmail());
             updatePersona.setDpi(person.getDpi());
             updatePersona.setTarjeta(person.getTarjeta());
             updatePersona.setCuidad(person.getCuidad());
@@ -62,6 +64,21 @@ public class PersonController {
             updatePersona.setTelefono(person.getTelefono());
             personRepository.save(updatePersona);
             return ResponseEntity.ok(updatePersona);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @RequestMapping(
+            value = "/update/password",
+            method = RequestMethod.PUT,
+            produces = "application/json")
+    public ResponseEntity<Person> updatePassword(@RequestBody Person person){
+        Optional<Person> optionalPassword = personRepository.findById(person.getId());
+        if(optionalPassword.isPresent()) {
+            Person updatePassword = optionalPassword.get();
+            updatePassword.setPassword(person.getPassword());
+            return ResponseEntity.ok(updatePassword);
         } else {
             return ResponseEntity.notFound().build();
         }

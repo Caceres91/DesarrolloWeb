@@ -12,18 +12,19 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "product")
-public class Product {
+@Table(name = "person")
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Integer id;
-    @Column(nullable = false)
     private String nombre;
-    @Column(nullable = false)
-    private int precio;
-    @Column(nullable = false)
-    private String descripcion;
+    private String apellido;
+    private int telefono;
+    private int dpi;
+    private String cuidad;
+    private String Genero;
+    private int tarjeta;
 
 }

@@ -49,12 +49,12 @@ public class ProductController {
     public ResponseEntity<Product> updatePerson(@RequestBody Product product){
         Optional<Product> productOptional = productRepository.findById(product.getId());
         if(productOptional.isPresent()) {
-            Product updatePersona = productOptional.get();
-            updatePersona.setNombre(product.getNombre());
-            updatePersona.setDescripcion(product.getDescripcion());
-            updatePersona.setPrecio(product.getPrecio());
-            productRepository.save(updatePersona);
-            return ResponseEntity.ok(updatePersona);
+            Product updateProduct = productOptional.get();
+            updateProduct.setNombre(product.getNombre());
+            updateProduct.setDescripcion(product.getDescripcion());
+            updateProduct.setPrecio(product.getPrecio());
+            productRepository.save(updateProduct);
+            return ResponseEntity.ok(updateProduct);
         } else {
             return ResponseEntity.notFound().build();
         }

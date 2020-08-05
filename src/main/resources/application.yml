@@ -1,13 +1,14 @@
 server:
   port: 2020
 
+#Coneccion a un contenedor Docker mysql:5.7.31
 spring:
   datasource:
     username: root
-    password:
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/desarrolloweb?useSSL=false&serveTimezone=/Guatemala
-
+    #url: jdbc:mysql://localhost:3306/desarrolloweb?useSSL=false&serveTimezone=/Guatemala
+    url: jdbc:mysql://localhost:3309/desarrolloweb?useSSL=false
   jpa:
     show-sql: true
     hibernate:
@@ -15,4 +16,5 @@ spring:
 
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
+        #dialect: org.hibernate.dialect.MySQL5Dialect
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect

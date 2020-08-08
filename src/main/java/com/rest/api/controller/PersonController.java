@@ -69,20 +69,20 @@ public class PersonController {
         }
     }
 
-    @RequestMapping(
-            value = "/update/password",
-            method = RequestMethod.PUT,
-            produces = "application/json")
-    public ResponseEntity<Person> updatePassword(@RequestBody Person person){
-        Optional<Person> optionalPassword = personRepository.findById(person.getId());
-        if(optionalPassword.isPresent()) {
-            Person updatePassword = optionalPassword.get();
-            updatePassword.setPassword(person.getPassword());
-            return ResponseEntity.ok(updatePassword);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+//    @RequestMapping(
+//            value = "/update/password",
+//            method = RequestMethod.PUT,
+//            produces = "application/json")
+//    public ResponseEntity<Person> updatePassword(@RequestBody Person person){
+//        Optional<Person> optionalPassword = personRepository.findById(person.getId());
+//        if(optionalPassword.isPresent()) {
+//            Person updatePassword = optionalPassword.get();
+//            updatePassword.setPassword(person.getPassword());
+//            return ResponseEntity.ok(updatePassword);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
 
     @RequestMapping(
             value = "{personId}",
